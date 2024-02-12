@@ -370,10 +370,11 @@ for (i = 0; i < MULTITHREAD; i++)
                   default_num_contexts * results[0].iterations
                       / time_in_secs(total_time));
 #endif
-    if (time_in_secs(total_time) < 10)
+    if (time_in_secs(total_time) < CORE_MIN_RUNTIME)
     {
         ee_printf(
-            "ERROR! Must execute for at least 10 secs for a valid result!\n");
+            "ERROR! Must execute for at least %d secs for a valid result!\n",
+            CORE_MIN_RUNTIME);
         total_errors++;
     }
 

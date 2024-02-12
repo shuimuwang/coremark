@@ -44,6 +44,10 @@ Original Author: Shay Gal-on
 #define ee_printf printf
 #endif
 
+#ifndef CORE_MIN_RUNTIME
+#define CORE_MIN_RUNTIME 10
+#endif
+
 /* Actual benchmark execution in iterate */
 void *iterate(void *pres);
 
