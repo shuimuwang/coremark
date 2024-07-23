@@ -63,6 +63,7 @@ Original Author: Shay Gal-on
         Define type of return from the timing functions.
  */
 #include <time.h>
+#include <stdint.h>
 typedef clock_t CORE_TICKS;
 
 /* Definitions : COMPILER_VERSION, COMPILER_FLAGS, MEM_LOCATION
@@ -97,7 +98,11 @@ typedef signed int     ee_s32;
 typedef double         ee_f32;
 typedef unsigned char  ee_u8;
 typedef unsigned int   ee_u32;
-typedef ee_u32         ee_ptr_int;
+#if defined(__x86_64__) || defined(_M_X64) || defined(__aarch64__)
+typedef uintptr_t      ee_ptr_int;
+#else
+typedef ee_u32       ee_ptr_int;
+#endif
 typedef size_t         ee_size_t;
 /* align_mem :
         This macro is used to align an offset to point to a 32b value. It is
