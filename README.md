@@ -73,7 +73,7 @@ The following files need to be compiled:
 
 For example:
 ~~~
-% gcc -O2 -I ./ -o coremark.exe core_list_join.c core_main.c core_matrix.c core_state.c core_util.c simple/core_portme.c -DPERFORMANCE_RUN=1 -DITERATIONS=1000 -DFLAGS_STR="\"-O2 -g\"
+% gcc -O2 -I ./ -I simple/ -o coremark.exe core_list_join.c core_main.c core_matrix.c core_state.c core_util.c simple/core_portme.c -DPERFORMANCE_RUN=1 -DITERATIONS=1000 -DFLAGS_STR="\"-O2 -g\"
 % ./coremark.exe > run1.log
 ~~~
 The above will compile the benchmark for a performance run and 1000 iterations. Output is redirected to `run1.log`.
